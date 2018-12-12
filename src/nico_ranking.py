@@ -39,18 +39,18 @@ def nico_ranking(args,stdin):
 
         draw = ImageDraw.Draw(img)
         draw.text((10, 10), title, fill=(255, 255, 255), font=font)
-        img.save("/Users/gabdro/NICONICO/thumbnail/{}.png".format(rank+1))
+        img.save("/tmp/{}.png".format(rank+1))
         #plt.imshow(img)
         #plt.show()
 
     img = Image.new('RGB', (360 * 5, 270*DISPLAY_NUM//5))
     for j in range(DISPLAY_NUM):
-        im = Image.open("/Users/gabdro/NICONICO/thumbnail/{}.png".format(j+1))
+        im = Image.open("/tmp/{}.png".format(j+1))
         #if j//5==1:
         img.paste(im, ( 360*((j%5)), 270*(j//5)))
         #else:
             #img.paste(im, ( 360*(j), 270*(j//5)))
-    img.save("/Users/gabdro/NICONICO/tmp/h.png")
+    img.save("/tmp/h.png")
     imgcat /Users/gabdro/NICONICO/tmp/h.png
     
     img_num = input('image number(1~{}) : '.format(DISPLAY_NUM))
